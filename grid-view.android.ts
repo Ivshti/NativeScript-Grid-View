@@ -92,7 +92,8 @@ export class GridView extends common.GridView
                 {
                     owner.notify(<observable.EventData>{ eventName: LOADMOREITEMS, object: owner });
                 }
-            }
+            },
+            get owner() { return that.get(); }
         }));
 
         this.android.setOnItemClickListener(new android.widget.AdapterView.OnItemClickListener({
@@ -239,7 +240,7 @@ class GridViewAdapter extends android.widget.BaseAdapter
 
             }
 
-            //convertView.setLayoutParams(new android.widget.GridView.LayoutParams(this._gridView.colWidth * utils.layout.getDisplayDensity(), this._gridView.rowHeight * utils.layout.getDisplayDensity()));
+            // convertView.setLayoutParams(new android.widget.GridView.LayoutParams(this._gridView.colWidth * utils.layout.getDisplayDensity(), this._gridView.rowHeight * utils.layout.getDisplayDensity()));
 
             this._gridView._realizedItems[convertView.hashCode()] = view;
             view[REALIZED_INDEX] = index;
